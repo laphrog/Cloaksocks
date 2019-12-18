@@ -10,9 +10,9 @@ ENV ARGS=
 
 COPY bin/ck-server-linux-amd64-2.1.2 /opt/ck-server
 COPY config/server.conf /opt/server.conf
-RUN chmod +x /opt/ck-server
+# RUN chmod +x /opt/ck-server
 EXPOSE 80 443
-CMD exec exec ss-server \
+CMD exec ss-server \
       -s $SERVER_ADDR \
       -p $SERVER_PORT \
       -k ${PASSWORD:-$(hostname)} \
@@ -21,4 +21,4 @@ CMD exec exec ss-server \
       -d $DNS_ADDRS \
       -u \
       $ARGS & \
-      /opt/ck-server -c /opt/server.conf
+      exec /opt/ck-server -c /opt/server.conf
