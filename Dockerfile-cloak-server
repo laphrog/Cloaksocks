@@ -38,7 +38,7 @@ ENV DOMAIN       example.com
 WORKDIR /app
 COPY --from=build /opt/Cloak/build/ck-server /app/ck-server
 COPY config/cloak-server.conf /app/config.json
-COPY script/entrypoint.sh /app/entrypoint.sh
+COPY scripts/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x ck-server
 RUN chmod +x entrypoint.sh
 ENTRYPOINT [ "./entrypoint.sh" ]
