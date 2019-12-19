@@ -1,7 +1,13 @@
 FROM golang:alpine AS build
 
 WORKDIR /opt
+# Install Prerequisites
+RUN apk add git make
+
+# Clone Repo
 RUN git clone https://github.com/cbeuw/Cloak.git
+
+# Get Golang libs
 RUN go get github.com/boltdb/bolt && \
     go get github.com/juju/ratelimit && \
     go get github.com/gorilla/mux && \
@@ -13,10 +19,27 @@ RUN mkdir -p /go//src/golang.org/x/crypto && \
     cd /go//src/golang.org/x/crypto && \
     git clone https://github.com/golang/crypto.git
 
+# Build application
 WORKDIR /opt/Cloak
 RUN make server
 
+# Final Docker image 
 FROM alpine:latest
+
+ENV LOCAL_IP     127.0.0.1
+ENV LOCAL_PORT   12345
+ENV METHOD       shadowsocks
+ENV BYPASSUID    SB2SgfFS2LVew5OSF8L6Bw==
+ENV REDIRADDR    1.0.0.1
+ENV PRIVATEKEY   oMbG89FoR9RJGpCpOXe2hEe4DNaHt36tx2kU7F9ozEs=
+ENV ADMINUID     SB2SgfFS2LVew5OSF8L6Bw==
+ENV DOMAIN       example.com
+
 WORKDIR /app
 COPY --from=build /opt/Cloak/build/ck-server /app/ck-server
+COPY config/cloak-server.config /app/config.json
+COPY script/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x ck-server
+RUN chmod +x entrypoint.sh
+ENTRYPOINT [ "./entrypoint.sh" ]
+CMD [ "/app/ck-server" , "-c" , "/app/config.json" , "-s" , "$DOMAIN" ]
