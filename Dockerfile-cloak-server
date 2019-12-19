@@ -42,4 +42,4 @@ COPY scripts/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x ck-server
 RUN chmod +x entrypoint.sh
 ENTRYPOINT [ "./entrypoint.sh" ]
-CMD [ "/app/ck-server" , "-c" , "/app/config.json" , "-s" , "$DOMAIN" ]
+CMD [ "/app/ck-server" , "-c" , "/app/config.json" ]
