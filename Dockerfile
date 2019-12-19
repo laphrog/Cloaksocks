@@ -20,7 +20,7 @@ RUN chmod +x ck-server
 RUN chmod +x ss-server
 
 EXPOSE 80 443
-CMD exec ss-server \
+CMD exec ./ss-server \
       -s $SERVER_ADDR \
       -p $SERVER_PORT \
       -k ${PASSWORD:-$(hostname)} \
@@ -29,4 +29,4 @@ CMD exec ss-server \
       -d $DNS_ADDRS \
       -u \
       $ARGS & \
-      exec ck-server -c server.conf
+      exec ./ck-server -c server.conf
