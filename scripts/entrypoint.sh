@@ -22,3 +22,5 @@ echo -e "[!] RedirAddr : ${REDIRADDR}"
 echo -e "[!] PrivateKey : ${PRIVATEKEY}"
 echo -e "[!] AdminUID : ${ADMINUID}"
 echo -e "[+] Happy Domain Fronting :)"
+
+exec "$@"
