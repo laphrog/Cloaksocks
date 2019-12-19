@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM golang:latest AS build
 
 WORKDIR /opt
 RUN git clone https://github.com/cbeuw/Cloak.git
@@ -7,7 +7,16 @@ RUN go get github.com/boltdb/bolt && \
     go get github.com/gorilla/mux && \
     go get github.com/gorilla/websocket && \
     go get github.com/sirupsen/logrus && \
-    go get golang.org/x/crypto && \
     go get github.com/refraction-networking/utls
 
+RUN mkdir -p /go//src/golang.org/x/crypto && \
+    cd /go//src/golang.org/x/crypto && \
+    git clone https://github.com/golang/crypto.git
+
+WORKDIR /opt/Cloak
 RUN make server
+
+FROM alpine:latest
+WORKDIR /app
+COPY --from=build /opt/Cloak/build/ck-server /app/ck-server
+RUN chmod +x ck-server
