@@ -14,15 +14,16 @@ RUN apk upgrade \
     && apk add tzdata \
     && rm -rf /var/cache/apk/*
 
-ENV SERVER_IP     0.0.0.0
-ENV SERVER_PORT   12345
+ENV SERVER_IP=     
+ENV SERVER_PORT=  
+ENV LOCAL_IP      127.0.0.1
+ENV LOCAL_PORT    1080
 ENV ENCRYPTION    AES-256-CFB
 ENV PASSWORD      password
 
 WORKDIR /app
-COPY --from=build /go/bin/go-shadowsocks2 /app/shadowsocks-server
-COPY config/shadowsocks-server.conf /app/config.json
-COPY scripts/entrypoint-shadowsocks-server.sh /app/entrypoint.sh
-RUN chmod +x shadowsocks-server
+COPY --from=build /go/bin/go-shadowsocks2 /app/shadowsocks-client
+COPY scripts/entrypoint-shadowsocks-client.sh /app/entrypoint.sh
+RUN chmod +x shadowsocks-client
 RUN chmod +x entrypoint.sh
 ENTRYPOINT [ "./entrypoint.sh" ]
