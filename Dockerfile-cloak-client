@@ -50,4 +50,4 @@ RUN chmod +x ck-client
 RUN chmod +x entrypoint.sh
 
 ENTRYPOINT [ "./entrypoint.sh" ]
-CMD [ "/app/ck-client" , "-c" , "/app/config.json" , "-s" , "${}SERVER_IP" , "-l" , "${LOCAL_PORT}" , "-a" , "${ADMINUID}" ]
+CMD [ "/app/ck-client" , "-c" , "/app/config.json" , "-s" , "${SERVER_IP}" , "-l" , "${LOCAL_PORT}" , "-a" , "${ADMINUID}" ]
