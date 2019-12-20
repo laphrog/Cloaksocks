@@ -21,6 +21,53 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 |Dockerfile-shadowsocks-server| Alpine container with ShadowSocks Server Golang | ✅ |
 |Dockerfile-shadowsocks-client | Alpine conatiner with ShadowSocks Client Golang |✅ |
 
+# Supported variables
+
+## Cloak Server
+| Key | Default value | Description |
+| --- | --- | --- |
+| LOCAL_IP | 127.0.0.1 | Your server IP |
+| LOCAL_PORT | 12345 | Application listening port |
+| METHOD | shadowsocks | |
+| BYPASSUID | SB2SgfFS2LVew5OSF8L6Bw== | is a UID that is authorised without any bandwidth or credit limit restrictions |
+| REDIRADDR |  1.0.0.1 | is the redirection address when the incoming traffic is not from a Cloak client |
+| PRIVATEKEY | oMbG89FoR9RJGpCpOXe2hEe4DNaHt36tx2kU7F9ozEs= |  is the static curve25519 Diffie-Hellman private key encoded in base64. |
+| ADMINUID | SB2SgfFS2LVew5OSF8L6Bw== | is the UID of the admin user in base64 |
+| DOMAIN | example.com | |
+
+## Cloak Client
+| Key | Default value | Description |
+| --- | --- | --- |
+| TRANSPORT | direct | If the server host wishes you to connect to it directly, use direct. |
+| METHOD | shadowsocks | is the name of the proxy method you are using. |
+| ENCRYPTION | plain |  is the name of the encryption algorithm you want Cloak to use. |
+| CLIENTUID | SB2SgfFS2LVew5OSF8L6Bw== | |
+| PUBLICKEY | IYoUzkle/T/kriE+Ufdm7AHQtIeGnBWbhhlTbmDpUUI= | is the static curve25519 public key, given by the server admin |
+| SERVERNAME | example.com | is the domain you want to make your ISP or firewall think you are visiting. |
+| CONNECTIONNUM | 4 | is the amount of underlying TCP connections you want to use |
+| BROWSER | chrome | is the browser you want to appear to be using. It's not relevant to the browser you are actually using. Currently, chrome and firefox are supported. | 
+| SERVER_IP | | |       
+| LOCAL_PORT | 443 | |
+| ADMINUID | SB2SgfFS2LVew5OSF8L6Bw== | |
+
+## ShadoSocks Server
+| Key | Default value | Description |
+| --- | --- | --- |
+| SERVER_IP | 0.0.0.0 | Application listening IP |
+| SERVER_PORT | 12345 | Application listening Port |
+| ENCRYPTION | AES-256-CFB | Encryption Method |
+| PASSWORD | password | Your password |
+
+## ShadowSocks Client
+| Key | Default value | Description |
+| --- | --- | --- |
+| SERVER_IP | `null` | |     
+| SERVER_PORT | `null` | |  
+| LOCAL_IP | 127.0.0.1 | Should be your Server IP |
+| LOCAL_PORT | 1080 | Socks5 Port | 
+| ENCRYPTION | AES-256-CFB | Encryption Method | 
+| PASSWORD | password | your password |
+
 # How to run Cloak with Shadowsocks Server
 To run the server stack you have two option:
 
