@@ -24,7 +24,7 @@ echo -e "[!] Server Name : \t${SERVERNAME}"
 echo -e "[!] Connection Number : ${CONNECTIONNUM}"
 echo -e "[!] Browser : \t\t${BROWSER}"
 echo -e "[!] Server IP : \t${SERVER_IP}"
-echo -e "[!] Server Port : \t${SERVER_PORT}"
+echo -e "[!] Local Port : \t${LOCAL_PORT}"
 echo -e "[!] Admin UID : \t${ADMINUID}"
 echo -e "[+] Happy Domain Fronting :)"
 
