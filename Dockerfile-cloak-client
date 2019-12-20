@@ -1,0 +1,50 @@
+FROM golang:alpine AS build
+
+WORKDIR /opt
+# Install Prerequisites
+RUN apk add git make
+
+# Clone Repo
+RUN git clone https://github.com/cbeuw/Cloak.git
+
+# Get Golang libs
+RUN go get github.com/boltdb/bolt && \
+    go get github.com/juju/ratelimit && \
+    go get github.com/gorilla/mux && \
+    go get github.com/gorilla/websocket && \
+    go get github.com/sirupsen/logrus && \
+    go get github.com/refraction-networking/utls
+
+RUN mkdir -p /go//src/golang.org/x/crypto && \
+    cd /go//src/golang.org/x/crypto && \
+    git clone https://github.com/golang/crypto.git
+
+# Build application
+WORKDIR /opt/Cloak
+RUN make client
+
+# Final Docker image 
+FROM alpine:latest
+
+RUN apk upgrade \
+    && apk add tzdata \
+    && rm -rf /var/cache/apk/*
+    
+ENV LOCAL_IP     127.0.0.1
+ENV LOCAL_PORT   12345
+ENV METHOD       shadowsocks
+ENV BYPASSUID    SB2SgfFS2LVew5OSF8L6Bw==
+ENV REDIRADDR    1.0.0.1
+ENV PRIVATEKEY   oMbG89FoR9RJGpCpOXe2hEe4DNaHt36tx2kU7F9ozEs=
+ENV ADMINUID     SB2SgfFS2LVew5OSF8L6Bw==
+ENV DOMAIN       example.com
+
+WORKDIR /app
+COPY --from=build /opt/Cloak/build/ck-client /app/ck-client
+COPY config/cloak-server.conf /app/config.json
+COPY scripts/entrypoint-cloak-server.sh /app/entrypoint.sh
+RUN chmod +x ck-client
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT [ "./entrypoint.sh" ]
+CMD [ "/app/ck-client" , "-s" , "<IP of the server>" ,  "-l" , "<A local port>" ,  "-a" , "<AdminUID>" , "-c" "/app/config.json" ]
