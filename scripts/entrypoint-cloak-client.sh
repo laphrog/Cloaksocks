@@ -15,14 +15,17 @@ sed -i "s|BROWSER|${BROWSER}|" /app/config.json
 
 echo -e '[+] Config.json generated successfully.'
 echo -e '[+] Show Container config'
-echo -e "[!] Transport : ${TRANSPORT}"
-echo -e "[!] Method : ${METHOD}"
-echo -e "[!] Encryption : ${ENCRYPTION}"
-echo -e "[!] UID : ${CLIENTUID}"
-echo -e "[!] Public Key : ${PUBLICKEY}"
-echo -e "[!] Server Name : ${SERVERNAME}"
+echo -e "[!] Transport : \t${TRANSPORT}"
+echo -e "[!] Method : \t\t${METHOD}"
+echo -e "[!] Encryption : \t${ENCRYPTION}"
+echo -e "[!] UID : \t\t${CLIENTUID}"
+echo -e "[!] Public Key : \t${PUBLICKEY}"
+echo -e "[!] Server Name : \t${SERVERNAME}"
 echo -e "[!] Connection Number : ${CONNECTIONNUM}"
-echo -e "[!] Browser : ${BROWSER}"
+echo -e "[!] Browser : \t\t${BROWSER}"
+echo -e "[!] Server IP : \t${SERVER_IP}"
+echo -e "[!] Server Port : \t${SERVER_PORT}"
+echo -e "[!] Admin UID : \t${ADMINUID}"
 echo -e "[+] Happy Domain Fronting :)"
 
 exec "$@"
