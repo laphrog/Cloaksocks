@@ -1,0 +1,42 @@
+version: "3.7"
+services:
+  cloak-server:
+    image: mohsenmottaghi/cloak-shadowsocks:cloak-server
+    ports:
+      - "443:443"
+    environment:
+      LOCAL_IP:     1.2.3.4
+      LOCAL_PORT:   12345
+      METHOD:       shadowsocks
+      BYPASSUID:    Wh0xJc4jNEevTqvmsWk9Yw==
+      REDIRADDR:    104.27.138.186
+      PRIVATEKEY:   mDoo9XJVYjsh2nFe4RYrVYnd/kHyHMYD9RnDTtfR5VM=
+      ADMINUID:     Wh0xJc4jNEevTqvmsWk9Yw==
+      DOMAIN:       example.com
+    networks:
+      - external
+      - internal
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: always
+
+  shadowsocks-server:
+    image: mohsenmottaghi/cloak-shadowsocks:shadowsocks-server
+    ports:
+      - "12345:12345"
+    environment:
+      SERVER_IP:     0.0.0.0
+      SERVER_PORT:   12345
+      ENCRYPTION:    AES-256-CFB
+      PASSWORD:      password
+    networks:
+      - internal
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: always
+
+networks:
+  external:
+  internal:
