@@ -26,6 +26,10 @@ RUN make server
 # Final Docker image 
 FROM alpine:latest
 
+RUN apk upgrade \
+    && apk add tzdata \
+    && rm -rf /var/cache/apk/*
+    
 ENV LOCAL_IP     127.0.0.1
 ENV LOCAL_PORT   12345
 ENV METHOD       shadowsocks
@@ -38,8 +42,9 @@ ENV DOMAIN       example.com
 WORKDIR /app
 COPY --from=build /opt/Cloak/build/ck-server /app/ck-server
 COPY config/cloak-server.conf /app/config.json
-COPY scripts/entrypoint.sh /app/entrypoint.sh
+COPY scripts/entrypoint-cloak-server.sh /app/entrypoint.sh
 RUN chmod +x ck-server
 RUN chmod +x entrypoint.sh
+
 ENTRYPOINT [ "./entrypoint.sh" ]
 CMD [ "/app/ck-server" , "-c" , "/app/config.json" ]
