@@ -14,13 +14,13 @@ sed -i "s|ADMINUID|${ADMINUID}|" /app/config.json
 
 echo -e '[+] Config.json generated successfully.'
 echo -e '[+] Show Container config'
-echo -e "[!] Local IP : ${LOCAL_IP}"
-echo -e "[!] Local Port : ${LOCAL_PORT}"
-echo -e "[!] Method : ${METHOD}"
-echo -e "[!] BypassUID : ${BYPASSUID}"
-echo -e "[!] RedirAddr : ${REDIRADDR}"
-echo -e "[!] PrivateKey : ${PRIVATEKEY}"
-echo -e "[!] AdminUID : ${ADMINUID}"
+echo -e "[!] Local IP : \t${LOCAL_IP}"
+echo -e "[!] Local Port : \t${LOCAL_PORT}"
+echo -e "[!] Method : \t${METHOD}"
+echo -e "[!] BypassUID : \t${BYPASSUID}"
+echo -e "[!] RedirAddr : \t${REDIRADDR}"
+echo -e "[!] PrivateKey : \t${PRIVATEKEY}"
+echo -e "[!] AdminUID : \t${ADMINUID}"
 echo -e "[+] Happy Domain Fronting :)"
 
 exec "$@"
