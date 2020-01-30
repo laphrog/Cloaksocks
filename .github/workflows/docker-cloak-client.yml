@@ -15,7 +15,7 @@ jobs:
       run: docker version
 
     - name: Build Docker image
-      run: docker build . --file Dockerfile --tag docker.pkg.github.com/mohsenmottaghi/cloak-shadowsocks-docker/cloak-client:latest
+      run: docker build . --file Dockerfile-cloak-client --tag docker.pkg.github.com/mohsenmottaghi/cloak-shadowsocks-docker/cloak-client:latest
 
     - name: Push Docker image
       run: |
