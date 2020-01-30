@@ -20,5 +20,5 @@ jobs:
     - name: Push Docker image
       run: |
         docker login docker.pkg.github.com --username mohsenmottaghi -p ${{ secrets.GITHUB_PACKAGES }}
-        docker push docker.pkg.github.com/mohsenmottaghi/cloak-shadowsocks-docker/cloak-Server:latest
+        docker push docker.pkg.github.com/mohsenmottaghi/cloak-shadowsocks-docker/cloak-server:latest
 
