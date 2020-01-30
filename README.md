@@ -153,3 +153,9 @@ go-shadowsocks2 -c 'ss://AEAD_CHACHA20_POLY1305:your-password@[server_address]:8
 ```
 
 Replace `[server_address]` with the server's public address.
+
+## GitHub CI
+![Cloak Client Docker Image CI](https://github.com/mohsenmottaghi/cloak-shadowsocks-docker/workflows/Cloak%20Client%20Docker%20Image%20CI/badge.svg)
+![Cloak Server Docker Image CI](https://github.com/mohsenmottaghi/cloak-shadowsocks-docker/workflows/Cloak%20Server%20Docker%20Image%20CI/badge.svg)
+![Shadowsocks Client Docker Image CI](https://github.com/mohsenmottaghi/cloak-shadowsocks-docker/workflows/Shadowsocks%20Client%20Docker%20Image%20CI/badge.svg)
+![Shadowsocks Server Docker Image CI](https://github.com/mohsenmottaghi/cloak-shadowsocks-docker/workflows/Shadowsocks%20Server%20Docker%20Image%20CI/badge.svg)
