@@ -1,18 +1,22 @@
 version: "3.7"
 services:
   cloak-server:
-    image: mohsenmottaghi/cloak-shadowsocks:cloak-server
+    image: freddykrum/cloak-shadowsocks:latest
     ports:
       - "443:443"
     environment:
-      LOCAL_IP:     ----- SERVER IP -----
+      LOCAL_IP:     $LOCAL_IP
       LOCAL_PORT:   8399
       METHOD:       shadowsocks
-      BYPASSUID:    
+      BYPASSUID:    $BYPASSUID
       REDIRADDR:    1.0.0.1
-      PRIVATEKEY:   
-      ADMINUID:     
+      PRIVATEKEY:   $PRIVATEKEY
+      ADMINUID:     $ADMINUID
+      PUBLICKKEY:   $PUBLICKKEY
+      ENCRYPTION:   $ENCRYPTION
+      PASSWORD:     $PASSWORD
       DOMAIN:       example.com
+      
     networks:
       - external
       - internal
@@ -22,14 +26,14 @@ services:
         condition: always
 
   shadowsocks-server:
-    image: mohsenmottaghi/cloak-shadowsocks:shadowsocks-server
+    image: freddykrum/ss-shadowsocks:latest
     ports:
       - "8399:8399"
     environment:
       SERVER_IP:     0.0.0.0
       SERVER_PORT:   8399
       ENCRYPTION:    AEAD_CHACHA20_POLY1305	
-      PASSWORD:      password
+      PASSWORD:      $PASSWORD
     networks:
       - internal
     deploy:
