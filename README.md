@@ -16,12 +16,9 @@ Cloaksocks consists of some scripts and Dockerfiles to enhance and simplify Shad
 |Dockerfile-shadowsocks-server| Alpine container with Golang ShadowSocks Server |
 
 # How to utilize
-To run the server stack you have two option:
+The are many options available to utilize:
 
-1. use Cloaksocks.sh script.
-2. use `docker-compose up` command
-
-To run Cloak Server with `Cloaksocks.sh` :
+Using `Cloaksocks.sh` is the recommended action:
 
 ```bash
 chmod +x Cloaksocks.sh
@@ -29,14 +26,14 @@ chmod +x Cloaksocks.sh
 ```
 
 Then follow the instructions. Fast and Simple.
-The script creates a `docker-compose.yml` file from your desired configuration and then starts the containers.
+The script creates a `docker-compose.yml` with your desired configuration and then starts the stack.
 
 
-if you want to run this stack with `docker-compose` make sure to check the Supported variables section first:
+if you want to run this stack with `docker-compose` make sure to check the Supported variables section first.
 then simply edit and run `docker-compose`
 
 ```bash
-docker-compose up -d
+docker-compose -f docker-compose-server.yaml up -d
 ```
 
 # Supported variables
