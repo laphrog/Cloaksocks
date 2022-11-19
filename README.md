@@ -53,7 +53,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | --- | --- | --- |
 | SERVER_IP | 0.0.0.0 | Application listening IP |
 | SERVER_PORT | 8399 | Application listening Port |
-| ENCRYPTION | AES-256-CFB | Encryption Method |
+| ENCRYPTION | AEAD_CHACHA20_POLY1305 | Encryption Method (`AES-256-CFB` is not supported) | 
 | PASSWORD | `null` | Your password |
 
 ## Shadowsocks Client
@@ -63,7 +63,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | SERVER_PORT | `null` | |  
 | LOCAL_IP | 127.0.0.1 | Should be your Server IP |
 | LOCAL_PORT | 1080 | Socks5 Port | 
-| ENCRYPTION | AES-256-CFB | Encryption Method | 
+| ENCRYPTION | AEAD_CHACHA20_POLY1305 | Encryption Method | 
 | PASSWORD | `null` | your password |
 
 # How to run Cloak with Shadowsocks Server
