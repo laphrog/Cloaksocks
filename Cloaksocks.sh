@@ -56,6 +56,28 @@ ReadArgs(){
 	*)
 		continue;;
 	esac
+
+
+
+	echo "Enter Redirect Address: "
+	echo "1) Cloudflare (1.0.0.1)"
+	echo "2) www.bing.com"
+	echo "3) Ignore (Recommended)"
+	echo
+	read -r -p "Please select an option or enter an address: " OPTIONS
+
+	case $OPTIONS in
+	1)
+		REDIRADDR=1.0.0.1;;
+	
+	2)
+		REDIRADDR=www.bing.com;;
+	
+	*)
+		REDIRADDR=$OPTIONS;;
+	esac
+	echo "Redirect address set to: $REDIRADDR"
+	echo
 }
 
 ReplaceArgs(){
@@ -72,10 +94,23 @@ ReplaceArgs(){
 
 ShowConnectionInfo(){
 	SERVER_BASE64=$(printf "%s" "$ENCRYPTION:$PASSWORD" | base64)
-	SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKKEY;ServerName=REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
+	SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKKEY;ServerName=$REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
 	SERVER_CLOAK_ARGS=$(printf "%s" "$SERVER_CLOAK_ARGS" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | cut -c 3-)
-	SERVER_BASE64="ss://$SERVER_BASE64@$PUBLIC_IP:$PORT?plugin=$SERVER_CLOAK_ARGS"
+	SERVER_BASE64="ss://$SERVER_BASE64@$LOCAL_IP:$LOCAL_PORT?plugin=$SERVER_CLOAK_ARGS"
+
+	echo "=========================================================================================="
+	echo "=========================================================================================="
+	echo "Download Cloak Android Client from https://github.com/cbeuw/Cloak-android/releases"
+	echo "Download Cloak PC Client from https://github.com/cbeuw/Cloak/releases"
+	echo "Make sure you have the ck-plugin installed and then Scan this QR:"
+	echo
 	qrencode -t ansiutf8 "$SERVER_BASE64"
+
+	echo "=========================================================================================="
+	echo "=========================================================================================="
+	echo "Or just use the link below:"
+	echo $SERVER_BASE64
+	echo
 }
 
 if [ -x bin/ck-server ]
@@ -88,7 +123,11 @@ fi
 
 
 
-docker-compose up -d
+ReadArgs
+ShowConnectionInfo
+
+
+#docker-compose up -d
 
 
 
