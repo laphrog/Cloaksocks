@@ -62,19 +62,19 @@ To run the server stack you have two option:
 To run Cloak Server with `docker run` :
 
 ```bash
-docker run --name cloak-server -d -p 443:443 -e LOCAL_IP='<YOUR SERVER IP>' --restart always mohsenmottaghi/cloak-shadowsocks:cloak-server
+docker run --name cloak-server -d -p 443:443 -e LOCAL_IP='<YOUR SERVER IP>' --restart always TBD-cloak-server
 ```
 
 Then you need to run ShadowSocks Server :
 
 ```bash
-docker run --name cloak-server -d -p 12345:12345 -e PASSWORD='<YOUR PASSWORD>' --restart always mohsenmottaghi/cloak-shadowsocks:shadowsocks-server
+docker run --name cloak-server -d -p 12345:12345 -e PASSWORD='<YOUR PASSWORD>' --restart always TBDshadowsocks-server
 ```
 
 if you want to run this stack with `docker-compose`:
 
 ```bash
-docker-compose up -d -f docker-compose-server.yaml
+docker-compose up -d
 ```
 
 
