@@ -15,6 +15,30 @@ Cloaksocks consists of some scripts and Dockerfiles to enhance and simplify Shad
 |Dockerfile-cloak-server| Alpine container with Cloak Server |
 |Dockerfile-shadowsocks-server| Alpine container with Golang ShadowSocks Server |
 
+# How to utilize
+To run the server stack you have two option:
+
+1. use Cloaksocks.sh script.
+2. use `docker-compose up` command
+
+To run Cloak Server with `Cloaksocks.sh` :
+
+```bash
+chmod +x Cloaksocks.sh
+./Cloaksocks.sh
+```
+
+Then follow the instructions. Fast and Simple.
+The script creates a `docker-compose.yml` file from your desired configuration and then starts the containers.
+
+
+if you want to run this stack with `docker-compose` make sure to check the Supported variables section first:
+then simply edit and run `docker-compose`
+
+```bash
+docker-compose up -d
+```
+
 # Supported variables
 
 ## Cloak Server
@@ -51,31 +75,6 @@ Cloaksocks consists of some scripts and Dockerfiles to enhance and simplify Shad
 | SERVER_PORT | 8399 | Application listening Port |
 | ENCRYPTION | AEAD_CHACHA20_POLY1305 | Encryption Method (`AES-256-CFB` is not supported) | 
 | PASSWORD | `null` | Your password |
-
-# How to run Cloak with Shadowsocks Server
-To run the server stack you have two option:
-
-1. use `docker run` command
-2. use `docker-compose up` command
-
-To run Cloak Server with `docker run` :
-
-```bash
-docker run --name cloak-server -d -p 443:443 -e LOCAL_IP='<YOUR SERVER IP>' --restart always TBD-cloak-server
-```
-
-Then you need to run ShadowSocks Server :
-
-```bash
-docker run --name cloak-server -d -p 12345:12345 -e PASSWORD='<YOUR PASSWORD>' --restart always TBDshadowsocks-server
-```
-
-if you want to run this stack with `docker-compose`:
-
-```bash
-docker-compose up -d
-```
-
 
 # Cloak Configuration
 [Cloak Manual - Offical Repo.](https://github.com/cbeuw/Cloak/blob/master/README.md)
