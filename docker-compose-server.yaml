@@ -5,13 +5,13 @@ services:
     ports:
       - "443:443"
     environment:
-      LOCAL_IP:     1.2.3.4
-      LOCAL_PORT:   12345
+      LOCAL_IP:     ----- SERVER IP -----
+      LOCAL_PORT:   8399
       METHOD:       shadowsocks
-      BYPASSUID:    Wh0xJc4jNEevTqvmsWk9Yw==
-      REDIRADDR:    104.27.138.186
-      PRIVATEKEY:   mDoo9XJVYjsh2nFe4RYrVYnd/kHyHMYD9RnDTtfR5VM=
-      ADMINUID:     Wh0xJc4jNEevTqvmsWk9Yw==
+      BYPASSUID:    
+      REDIRADDR:    1.0.0.1
+      PRIVATEKEY:   
+      ADMINUID:     
       DOMAIN:       example.com
     networks:
       - external
@@ -24,10 +24,10 @@ services:
   shadowsocks-server:
     image: mohsenmottaghi/cloak-shadowsocks:shadowsocks-server
     ports:
-      - "12345:12345"
+      - "8399:8399"
     environment:
       SERVER_IP:     0.0.0.0
-      SERVER_PORT:   12345
+      SERVER_PORT:   8399
       ENCRYPTION:    AES-256-CFB
       PASSWORD:      password
     networks:
