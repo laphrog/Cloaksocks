@@ -17,7 +17,7 @@ Cloaksocks consists of some scripts and Dockerfiles to enhance and simplify Shad
 
 # How to utilize
 The are many options available to utilize:
-
+### Using the shell script
 Using `Cloaksocks.sh` is the recommended action:
 
 ```bash
@@ -28,9 +28,9 @@ chmod +x Cloaksocks.sh
 Then follow the instructions. Fast and Simple.
 The script creates a `docker-compose.yml` with your desired configuration and then starts the stack.
 
-
-if you want to run this stack with `docker-compose` make sure to check the Supported variables section first.
-then simply edit and run `docker-compose`
+### Using docker-compose directly
+If you want to run this stack with `docker-compose` make sure to check the Supported variables section first.
+Then simply edit and run `docker-compose-server.yaml`
 
 ```bash
 docker-compose -f docker-compose-server.yaml up -d
