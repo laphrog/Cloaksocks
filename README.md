@@ -28,22 +28,22 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | LOCAL_PORT | 8399 | Application listening port |
 | METHOD | shadowsocks | |
 | BYPASSUID | `null`| UID Genetated by Cloak that is authorised without any restrictions. `ck-server -uid` |
-| REDIRADDR |  1.0.0.1 | is the redirection address when the incoming traffic is not from a Cloak client |
-| PRIVATEKEY | `null` |  is the static curve25519 Diffie-Hellman private key encoded in base64. `ck-server -k` |
-| ADMINUID | `null` | is the UID of the admin user in base64 (Optional) `ck-server -uid` |
+| REDIRADDR |  1.0.0.1 | redirection address when the incoming traffic is not from a Cloak client (Ideally it should be set to a major website allowed by the censor.) |
+| PRIVATEKEY | `null` |  static curve25519 Diffie-Hellman private key encoded in base64. `ck-server -k` |
+| ADMINUID | `null` | UID of the admin user in base64 (Optional) `ck-server -uid` |
 | DOMAIN | example.com | |
 
 ## Cloak Client
 | Key | Default value | Description |
 | --- | --- | --- |
 | TRANSPORT | direct | If the server host wishes you to connect to it directly, use direct. |
-| METHOD | shadowsocks | is the name of the proxy method you are using. |
-| ENCRYPTION | plain |  is the name of the encryption algorithm you want Cloak to use. |
+| METHOD | shadowsocks | the proxy method you are using. |
+| ENCRYPTION | plain |  encryption algorithm you want Cloak to use. |
 | CLIENTUID | UID obtained in the previous table | |
 | PUBLICKEY | PubKey obtained in the previous table | is the static curve25519 public key, given by the server admin |
-| SERVERNAME | example.com | is the domain you want to make your ISP or firewall think you are visiting. |
-| CONNECTIONNUM | 4 | is the amount of underlying TCP connections you want to use |
-| BROWSER | chrome | is the browser you want to appear to be using. It's not relevant to the browser you are actually using. Currently, chrome and firefox are supported. | 
+| SERVERNAME | example.com | domain you want to make your ISP or firewall think you are visiting. |
+| CONNECTIONNUM | 4 | amount of underlying TCP connections you want to use |
+| BROWSER | chrome | the browser you want to appear to be using. It's not relevant to the browser you are actually using. Currently, `chrome` and `firefox` are supported. | 
 | SERVER_IP | | |       
 | LOCAL_PORT | 443 | |
 | ADMINUID | Admin UID obtained in the previous table | |
