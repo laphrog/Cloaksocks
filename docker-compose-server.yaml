@@ -9,7 +9,7 @@ services:
       LOCAL_PORT:   $LOCAL_PORT
       METHOD:       shadowsocks
       BYPASSUID:    $BYPASSUID
-      REDIRADDR:    1.0.0.1
+      REDIRADDR:    $REDIRADDR
       PRIVATEKEY:   $PRIVATEKEY
       ADMINUID:     $ADMINUID
       PUBLICKKEY:   $PUBLICKKEY
@@ -31,7 +31,7 @@ services:
       - "8399:8399"
     environment:
       SERVER_IP:     0.0.0.0
-      SERVER_PORT:   8399
+      SERVER_PORT:   $LOCAL_IP
       ENCRYPTION:    AEAD_CHACHA20_POLY1305	
       PASSWORD:      $PASSWORD
     networks:
