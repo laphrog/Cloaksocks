@@ -10,6 +10,23 @@ echo
 
 
 InstallDep(){
+	rpm -qa | grep docker-ce
+	if [ $?==1 ]
+	then
+		yum install -y yum-utils
+		yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+		yum install docker-ce
+		systemctl start docker
+	fi
+	
+	docker-compose version
+	if [ $?==1 ]
+	then
+		curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" \
+		-o /usr/local/bin/docker-compose
+		chmod +x /usr/local/bin/docker-compose
+	fi
+	
 	rpm -qa | grep qrencode
 	if [ $?==1 ]
 	then
@@ -48,34 +65,28 @@ ReadArgs(){
 	case $OPTIONS in
 	1)
 		ADMINUID=$BYPASSUID;;
-	
 	2)
 		ADMINUID=$(bin/ck-server -uid | cut -d" " -f4)
 		echo "Your AdminUID: $ADMINUID";;
-	
 	*)
 		continue;;
 	esac
 
-
-
 	echo "Enter Redirect Address: "
 	echo "1) Cloudflare (1.0.0.1)"
 	echo "2) www.bing.com"
-	echo "3) Ignore (Recommended)"
 	echo
-	read -r -p "Please select an option or enter an address: " OPTIONS
+	read -r -p "Select an Option or Enter an Address: " OPTIONS
 
 	case $OPTIONS in
 	1)
 		REDIRADDR=1.0.0.1;;
-	
 	2)
 		REDIRADDR=www.bing.com;;
-	
 	*)
 		REDIRADDR=$OPTIONS;;
 	esac
+	
 	echo "Redirect address set to: $REDIRADDR"
 	echo
 }
@@ -113,6 +124,7 @@ ShowConnectionInfo(){
 	echo
 }
 
+
 if [ -x bin/ck-server ]
 then
         QueryInfo
@@ -122,15 +134,7 @@ else
 fi
 
 
-
 ReadArgs
+ReplaceArgs
+docker-compose up -d
 ShowConnectionInfo
-
-
-#docker-compose up -d
-
-
-
-
-#sed -i "s||${}|" docker-compose.yml
-#read -e -p " " -i "" L
