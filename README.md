@@ -29,14 +29,14 @@ Then follow the instructions. Fast and Simple.
 The script creates a `docker-compose.yml` with your desired configuration and then starts the stack.
 
 ### Using docker-compose directly
-If you want to run this stack with `docker-compose` make sure to check the Supported variables section first.
+If you want to manually configure the `docker-compose` file, make sure to check the "Supported Variables" section first.
 Then simply edit and run `docker-compose-server.yaml`
 
 ```bash
 docker-compose -f docker-compose-server.yaml up -d
 ```
 
-# Supported variables
+# Supported Variables
 
 ## Cloak Server
 | Key | Description |
