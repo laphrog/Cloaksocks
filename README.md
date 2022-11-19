@@ -1,13 +1,10 @@
 # Cloak with Shadowsocks on Docker
 
-![Cloak version](https://img.shields.io/badge/Cloak_version-2.1.2-blue)
+![Cloak version](https://img.shields.io/badge/Cloak_version-2.6.0-blue)
 ![ShadowSocks version](https://img.shields.io/badge/ShadowSocks_version-0.0.1.1-blue)
 ![Dockerfile](https://img.shields.io/badge/Dockerfile-Ready-brightgreen)
 ![Docker Compose](https://img.shields.io/badge/Docker_Compose-Ready-brightgreen)
 ![Docker Build](https://img.shields.io/badge/Docker_Build-Automatic-brightgreen)
-![Project Name](https://img.shields.io/badge/Project_code_name-Robe-purple)
-
-Project Name: `ROBE`
 
 ---
 Cloak is a universal pluggable transport that cryptographically obfuscates proxy traffic as legitimate HTTPS traffic, disguises the proxy server as a normal web server, multiplexes traffic through a fixed amount of TCP connections and provides multi-user usage control.
