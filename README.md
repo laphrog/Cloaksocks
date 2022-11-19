@@ -36,6 +36,11 @@ Then simply edit and run `docker-compose-server.yaml`
 docker-compose -f docker-compose-server.yaml up -d
 ```
 
+### Using Docker Images or Dockerfile
+Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.docker.com
+
+
+
 # Supported Variables
 
 ## Cloak Server
