@@ -15,9 +15,9 @@ RUN apk upgrade \
     && rm -rf /var/cache/apk/*
 
 ENV SERVER_IP     0.0.0.0
-ENV SERVER_PORT   8388
+ENV SERVER_PORT   8399
 ENV ENCRYPTION    AEAD_CHACHA20_POLY1305
-ENV PASSWORD      password
+ENV PASSWORD      $PASSWORD
 
 WORKDIR /app
 COPY --from=build /go/bin/go-shadowsocks2 /app/shadowsocks-server
