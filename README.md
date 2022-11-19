@@ -41,8 +41,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | PUBLICKEY | PubKey obtained in the previous table | is the static curve25519 public key, given by the server admin |
 | SERVERNAME | example.com | domain you want to make your ISP or firewall think you are visiting. |
 | CONNECTIONNUM | 4 | amount of underlying TCP connections you want to use |
-| BROWSER | chrome | the browser you want to appear to be using. It's not relevant to the browser you are actually using. Currently, `chrome` and `firefox` are supported. | 
-| SERVER_IP | | |       
+| BROWSER | chrome | the browser you want to appear to be using. It's not relevant to the browser you are actually using. Currently, `chrome` and `firefox` are supported. |      
 | LOCAL_PORT | 443 | |
 | ADMINUID | Admin UID obtained in the previous table | |
 
