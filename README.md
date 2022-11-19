@@ -16,7 +16,7 @@ Cloaksocks consists of some scripts and Dockerfiles to enhance and simplify Shad
 |Dockerfile-shadowsocks-server| Alpine container with Golang ShadowSocks Server |
 
 # How to utilize
-The are many options available to utilize:
+You have many options:
 ### Using the shell script
 Using `Cloaksocks.sh` is the recommended action:
 
