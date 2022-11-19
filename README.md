@@ -54,7 +54,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | SERVER_IP | 0.0.0.0 | Application listening IP |
 | SERVER_PORT | 8399 | Application listening Port |
 | ENCRYPTION | AES-256-CFB | Encryption Method |
-| PASSWORD | password | Your password |
+| PASSWORD | `null` | Your password |
 
 ## Shadowsocks Client
 | Key | Default value | Description |
