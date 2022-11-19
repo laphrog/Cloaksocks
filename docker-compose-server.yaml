@@ -32,7 +32,7 @@ services:
     environment:
       SERVER_IP:     0.0.0.0
       SERVER_PORT:   $LOCAL_PORT
-      ENCRYPTION:    AEAD_CHACHA20_POLY1305	
+      ENCRYPTION:    $ENCRYPTION
       PASSWORD:      $PASSWORD
     networks:
       - internal
