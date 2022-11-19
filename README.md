@@ -29,7 +29,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | LOCAL_IP | 127.0.0.1 | Your server IP |
 | LOCAL_PORT | 8399 | Application listening port |
 | METHOD | shadowsocks | |
-| BYPASSUID |  | UID Genetated by Cloak that is authorised without any bandwidth or credit limit restrictions. `ck-server -uid` |
+| BYPASSUID |  | UID Genetated by Cloak that is authorised without any restrictions. `ck-server -uid` |
 | REDIRADDR |  1.0.0.1 | is the redirection address when the incoming traffic is not from a Cloak client |
 | PRIVATEKEY |  |  is the static curve25519 Diffie-Hellman private key encoded in base64. `ck-server -k` |
 | ADMINUID |  | is the UID of the admin user in base64 (Optional) `ck-server -uid` |
