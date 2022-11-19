@@ -29,10 +29,10 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | LOCAL_IP | 127.0.0.1 | Your server IP |
 | LOCAL_PORT | 8399 | Application listening port |
 | METHOD | shadowsocks | |
-| BYPASSUID | Obtained by `ck-server -uid` | UID Genetated by Cloak that is authorised without any bandwidth or credit limit restrictions |
+| BYPASSUID | `ck-server -uid` | UID Genetated by Cloak that is authorised without any bandwidth or credit limit restrictions |
 | REDIRADDR |  1.0.0.1 | is the redirection address when the incoming traffic is not from a Cloak client |
-| PRIVATEKEY | Obtained by `ck-server -k` |  is the static curve25519 Diffie-Hellman private key encoded in base64. |
-| ADMINUID | Obtained by `ck-server -uid` | is the UID of the admin user in base64 (Optional) |
+| PRIVATEKEY | `ck-server -k` |  is the static curve25519 Diffie-Hellman private key encoded in base64. |
+| ADMINUID | `ck-server -uid` | is the UID of the admin user in base64 (Optional) |
 | DOMAIN | example.com | |
 
 ## Cloak Client
@@ -41,20 +41,20 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | TRANSPORT | direct | If the server host wishes you to connect to it directly, use direct. |
 | METHOD | shadowsocks | is the name of the proxy method you are using. |
 | ENCRYPTION | plain |  is the name of the encryption algorithm you want Cloak to use. |
-| CLIENTUID | UID optained in the previous table | |
-| PUBLICKEY | PubKey optained in the previous table | is the static curve25519 public key, given by the server admin |
+| CLIENTUID | UID obtained in the previous table | |
+| PUBLICKEY | PubKey obtained in the previous table | is the static curve25519 public key, given by the server admin |
 | SERVERNAME | example.com | is the domain you want to make your ISP or firewall think you are visiting. |
 | CONNECTIONNUM | 4 | is the amount of underlying TCP connections you want to use |
 | BROWSER | chrome | is the browser you want to appear to be using. It's not relevant to the browser you are actually using. Currently, chrome and firefox are supported. | 
 | SERVER_IP | | |       
 | LOCAL_PORT | 443 | |
-| ADMINUID | Admin UID optained in the previous table | |
+| ADMINUID | Admin UID obtained in the previous table | |
 
 ## ShadoSocks Server
 | Key | Default value | Description |
 | --- | --- | --- |
 | SERVER_IP | 0.0.0.0 | Application listening IP |
-| SERVER_PORT | 12345 | Application listening Port |
+| SERVER_PORT | 8399 | Application listening Port |
 | ENCRYPTION | AES-256-CFB | Encryption Method |
 | PASSWORD | password | Your password |
 
