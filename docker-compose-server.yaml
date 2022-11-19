@@ -6,7 +6,7 @@ services:
       - "443:443"
     environment:
       LOCAL_IP:     $LOCAL_IP
-      LOCAL_PORT:   8399
+      LOCAL_PORT:   $LOCAL_PORT
       METHOD:       shadowsocks
       BYPASSUID:    $BYPASSUID
       REDIRADDR:    1.0.0.1
