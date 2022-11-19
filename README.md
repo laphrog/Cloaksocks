@@ -14,7 +14,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 |File name| Description |
 |---|---|
 |Dockerfile-cloak-server| Alpine container with Cloak Server |
-|Dockerfile-shadowsocks-server| Alpine container with ShadowSocks Server Golang |
+|Dockerfile-shadowsocks-server| Alpine container with Golang ShadowSocks Server |
 
 # Supported variables
 
