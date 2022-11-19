@@ -19,16 +19,17 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 # Supported variables
 
 ## Cloak Server
-| Key | Default value | Description |
-| --- | --- | --- |
-| LOCAL_IP | 127.0.0.1 | Your server IP |
-| LOCAL_PORT | 8399 | Application listening port |
-| METHOD | shadowsocks | |
-| BYPASSUID | `null`| UID Genetated by Cloak that is authorised without any restrictions. `ck-server -uid` |
-| REDIRADDR |  1.0.0.1 | redirection address when the incoming traffic is not from a Cloak client (Ideally it should be set to a major website allowed by the censor.) |
-| PRIVATEKEY | `null` |  static curve25519 Diffie-Hellman private key encoded in base64. `ck-server -k` |
-| ADMINUID | `null` | UID of the admin user in base64 (Optional) `ck-server -uid` |
-| DOMAIN | example.com | |
+| Key | Description |
+| --- | --- |
+| LOCAL_IP | Your server IP |
+| LOCAL_PORT | Application listening port |
+| METHOD | shadowsocks |
+| BYPASSUID | UID Genetated by Cloak that is authorised without any restrictions. `ck-server -uid` |
+| REDIRADDR | redirection address when the incoming traffic is not from a Cloak client (Ideally it should be set to a major website allowed by the censor.) |
+| PRIVATEKEY | static curve25519 Diffie-Hellman private key encoded in base64. `ck-server -k` |
+| ADMINUID | UID of the admin user in base64 (Optional) `ck-server -uid` |
+
+
 
 ## Cloak Client
 | Key | Default value | Description |
@@ -52,16 +53,6 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | SERVER_PORT | 8399 | Application listening Port |
 | ENCRYPTION | AEAD_CHACHA20_POLY1305 | Encryption Method (`AES-256-CFB` is not supported) | 
 | PASSWORD | `null` | Your password |
-
-## Shadowsocks Client
-| Key | Default value | Description |
-| --- | --- | --- |
-| SERVER_IP | `null` | |     
-| SERVER_PORT | `null` | |  
-| LOCAL_IP | 127.0.0.1 | Should be your Server IP |
-| LOCAL_PORT | 1080 | Socks5 Port | 
-| ENCRYPTION | AEAD_CHACHA20_POLY1305 | Encryption Method | 
-| PASSWORD | `null` | your password |
 
 # How to run Cloak with Shadowsocks Server
 To run the server stack you have two option:
@@ -89,7 +80,7 @@ docker-compose up -d -f docker-compose-server.yaml
 
 
 # Cloak Configuration
-[Cloak Manual - offical repo](https://github.com/cbeuw/Cloak/blob/master/README.md)
+[Cloak Manual - Offical Repo.](https://github.com/cbeuw/Cloak/blob/master/README.md)
 
 ### Server
 `RedirAddr` is the redirection address when the incoming traffic is not from a Cloak client. It should either be the same as, or correspond to the IP record of the `ServerName` field set in `ckclient.json`.
