@@ -5,7 +5,7 @@ WORKDIR /opt
 RUN apk add git make
 
 # Clone Repo
-RUN go get -u -v github.com/shadowsocks/go-shadowsocks2
+RUN go install github.com/shadowsocks/go-shadowsocks2@latest
 
 # Final Docker image 
 FROM alpine:latest
