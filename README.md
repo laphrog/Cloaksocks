@@ -1,4 +1,4 @@
-# Cloak with Shadowsocks on Docker
+# Cloaksocks (Shadowsocks over Cloak on Docker)
 
 ![Cloak version](https://img.shields.io/badge/Cloak_version-2.6.0-blue)
 ![ShadowSocks version](https://img.shields.io/badge/ShadowSocks_version-0.1.5-blue)
