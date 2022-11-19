@@ -11,10 +11,10 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 
 # Dockerfiles
 
-|File name| Description | Auto Build |
-|---|---|---|
-|Dockerfile-cloak-server| Alpine container with Cloak Server | ✅ |
-|Dockerfile-shadowsocks-server| Alpine container with ShadowSocks Server Golang | ✅ |
+|File name| Description |
+|---|---|
+|Dockerfile-cloak-server| Alpine container with Cloak Server |
+|Dockerfile-shadowsocks-server| Alpine container with ShadowSocks Server Golang |
 
 # Supported variables
 
