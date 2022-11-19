@@ -10,7 +10,6 @@ sed -i "s|METHOD|${METHOD}|" /app/config.json
 sed -i "s|BYPASSUID|${BYPASSUID}|" /app/config.json
 sed -i "s|REDIRADDR|${REDIRADDR}|" /app/config.json
 sed -i "s|PRIVATEKEY|${PRIVATEKEY}|" /app/config.json
-sed -i "s|PUBLICKKEY|${PUBLICKKEY}|" /app/config.json
 sed -i "s|ADMINUID|${ADMINUID}|" /app/config.json
 
 
