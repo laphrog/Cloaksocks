@@ -3,7 +3,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 
 Cloaksocks consists of scripts and Dockerfiles to enhance and simplify Shadowsocks/Cloak usage.
 
-![Made with](https://img.shields.io/badge/Made%20with-Bash-red)
+![Made with]([https://img.shields.io/badge/Made%20with-Bash-red](https://img.shields.io/badge/Made%20with-Bash%2FDocker-red))
 ![Cloak version](https://img.shields.io/badge/Cloak_version-2.6.0-blue)
 ![ShadowSocks version](https://img.shields.io/badge/ShadowSocks_version-0.1.5-blue)
 ![Dockerfile](https://img.shields.io/badge/Dockerfile-Ready-brightgreen)
