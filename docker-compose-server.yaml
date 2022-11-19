@@ -28,7 +28,7 @@ services:
     environment:
       SERVER_IP:     0.0.0.0
       SERVER_PORT:   8399
-      ENCRYPTION:    AES-256-CFB
+      ENCRYPTION:    AEAD_CHACHA20_POLY1305	
       PASSWORD:      password
     networks:
       - internal
