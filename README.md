@@ -1,7 +1,7 @@
 # Cloak with Shadowsocks on Docker
 
 ![Cloak version](https://img.shields.io/badge/Cloak_version-2.6.0-blue)
-![ShadowSocks version](https://img.shields.io/badge/ShadowSocks_version-0.0.1.1-blue)
+![ShadowSocks version](https://img.shields.io/badge/ShadowSocks_version-0.1.5-blue)
 ![Dockerfile](https://img.shields.io/badge/Dockerfile-Ready-brightgreen)
 ![Docker Compose](https://img.shields.io/badge/Docker_Compose-Ready-brightgreen)
 ![Docker Build](https://img.shields.io/badge/Docker_Build-Automatic-brightgreen)
