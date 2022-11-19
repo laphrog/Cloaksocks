@@ -5,23 +5,14 @@ WORKDIR /opt
 RUN apk add git make
 
 # Clone Repo
-RUN git clone https://github.com/cbeuw/Cloak.git
+RUN git clone https://github.com/cbeuw/Cloak
 
 # Get Golang libs
-RUN go get github.com/boltdb/bolt && \
-    go get github.com/juju/ratelimit && \
-    go get github.com/gorilla/mux && \
-    go get github.com/gorilla/websocket && \
-    go get github.com/sirupsen/logrus && \
-    go get github.com/refraction-networking/utls
-
-RUN mkdir -p /go//src/golang.org/x/crypto && \
-    cd /go//src/golang.org/x/crypto && \
-    git clone https://github.com/golang/crypto.git
+RUN go get ./...
 
 # Build application
 WORKDIR /opt/Cloak
-RUN make server
+RUN make
 
 # Final Docker image 
 FROM alpine:latest
@@ -31,12 +22,12 @@ RUN apk upgrade \
     && rm -rf /var/cache/apk/*
     
 ENV LOCAL_IP     127.0.0.1
-ENV LOCAL_PORT   12345
+ENV LOCAL_PORT   8399
 ENV METHOD       shadowsocks
-ENV BYPASSUID    SB2SgfFS2LVew5OSF8L6Bw==
+ENV BYPASSUID    
 ENV REDIRADDR    1.0.0.1
-ENV PRIVATEKEY   oMbG89FoR9RJGpCpOXe2hEe4DNaHt36tx2kU7F9ozEs=
-ENV ADMINUID     SB2SgfFS2LVew5OSF8L6Bw==
+ENV PRIVATEKEY   
+ENV ADMINUID     
 ENV DOMAIN       example.com
 
 WORKDIR /app
