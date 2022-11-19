@@ -15,7 +15,7 @@ RUN apk upgrade \
     && rm -rf /var/cache/apk/*
 
 ENV SERVER_IP     0.0.0.0
-ENV SERVER_PORT   8399
+ENV SERVER_PORT   8388
 ENV ENCRYPTION    AEAD_CHACHA20_POLY1305
 ENV PASSWORD      password
 
