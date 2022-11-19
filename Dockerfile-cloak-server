@@ -1,4 +1,4 @@
-FROM golang:alpine AS build
+FROM golang:1.17.9-alpine3.15 AS build
 
 WORKDIR /opt
 # Install Prerequisites
@@ -7,11 +7,9 @@ RUN apk add git make
 # Clone Repo
 RUN git clone https://github.com/cbeuw/Cloak
 
-# Get Golang libs
-RUN go get ./...
-
 # Build application
 WORKDIR /opt/Cloak
+RUN go get ./...
 RUN make
 
 # Final Docker image 
@@ -24,10 +22,10 @@ RUN apk upgrade \
 ENV LOCAL_IP     127.0.0.1
 ENV LOCAL_PORT   8399
 ENV METHOD       shadowsocks
-ENV BYPASSUID    
+ENV BYPASSUID    null
 ENV REDIRADDR    1.0.0.1
-ENV PRIVATEKEY   
-ENV ADMINUID     
+ENV PRIVATEKEY   null
+ENV ADMINUID     null 
 ENV DOMAIN       example.com
 
 WORKDIR /app
