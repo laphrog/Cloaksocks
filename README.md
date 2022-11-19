@@ -64,7 +64,7 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 | ENCRYPTION | plain |  encryption algorithm you want Cloak to use. |
 | CLIENTUID | UID obtained in the previous table | |
 | PUBLICKEY | PubKey obtained in the previous table | is the static curve25519 public key, given by the server admin |
-| SERVERNAME | example.com | domain you want to make your ISP or firewall think you are visiting. |
+| SERVERNAME | 1.0.0.1 | domain you want to make your ISP or firewall think you are visiting. Better be the same value as REDIRADDR |
 | CONNECTIONNUM | 4 | amount of underlying TCP connections you want to use |
 | BROWSER | chrome | the browser you want to appear to be using. It's not relevant to the browser you are actually using. Currently, `chrome` and `firefox` are supported. |      
 | LOCAL_PORT | 443 | |
