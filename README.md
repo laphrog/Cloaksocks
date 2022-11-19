@@ -114,7 +114,7 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 `BrowserSig` is the browser you want to **appear** to be using. It's not relevant to the browser you are actually using. Currently, `chrome` and `firefox` are supported.
 
 # ShadowSocks Golang Configuration
-[Shadowsocks Manual - offical repo](https://github.com/shadowsocks/go-shadowsocks2/blob/master/README.md)
+[Shadowsocks Manual - Offical Repo.](https://github.com/shadowsocks/go-shadowsocks2/blob/master/README.md)
 
 ### Server
 
