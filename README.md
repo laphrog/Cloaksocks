@@ -17,9 +17,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 |File name| Description | Auto Build |
 |---|---|---|
 |Dockerfile-cloak-server| Alpine container with Cloak Server | ✅ |
-|Dockerfile-cloak-client| Alpine container with Cloak Client | ✅ |
 |Dockerfile-shadowsocks-server| Alpine container with ShadowSocks Server Golang | ✅ |
-|Dockerfile-shadowsocks-client | Alpine conatiner with ShadowSocks Client Golang |✅ |
 
 # Supported variables
 
@@ -50,7 +48,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | LOCAL_PORT | 443 | |
 | ADMINUID | Admin UID obtained in the previous table | |
 
-## ShadoSocks Server
+## Shadowsocks Server
 | Key | Default value | Description |
 | --- | --- | --- |
 | SERVER_IP | 0.0.0.0 | Application listening IP |
@@ -58,7 +56,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | ENCRYPTION | AES-256-CFB | Encryption Method |
 | PASSWORD | password | Your password |
 
-## ShadowSocks Client
+## Shadowsocks Client
 | Key | Default value | Description |
 | --- | --- | --- |
 | SERVER_IP | `null` | |     
@@ -66,7 +64,7 @@ Cloak is a universal pluggable transport that cryptographically obfuscates proxy
 | LOCAL_IP | 127.0.0.1 | Should be your Server IP |
 | LOCAL_PORT | 1080 | Socks5 Port | 
 | ENCRYPTION | AES-256-CFB | Encryption Method | 
-| PASSWORD | password | your password |
+| PASSWORD | `null` | your password |
 
 # How to run Cloak with Shadowsocks Server
 To run the server stack you have two option:
