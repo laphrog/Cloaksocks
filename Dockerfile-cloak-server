@@ -8,6 +8,7 @@ WORKDIR /opt/Cloak
 RUN go get ./...
 RUN make
 
+
 # Final Docker image 
 FROM alpine:latest
 
