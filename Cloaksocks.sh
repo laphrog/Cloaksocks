@@ -131,7 +131,7 @@ if [ -x bin/ck_server ]
 then
         QueryInfo
 else
-        chmod +x ck_server
+        chmod +x bin/ck_server
         QueryInfo
 fi
 
