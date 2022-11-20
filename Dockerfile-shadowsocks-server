@@ -1,11 +1,9 @@
 FROM golang:alpine AS build
 
 WORKDIR /opt
-# Install Prerequisites
 RUN apk add git make
-
-# Clone Repo
 RUN go install github.com/shadowsocks/go-shadowsocks2@latest
+
 
 # Final Docker image 
 FROM alpine:latest
