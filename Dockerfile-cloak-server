@@ -31,12 +31,15 @@ ENV ENCRYPTION   AEAD_CHACHA20_POLY1305
 ENV PASSWORD     null
 ENV BINDPORT     443
 
-EXPOSE 443/tcp
+EXPOSE 443/tcp 
 
 WORKDIR /app
 COPY --from=build /opt/Cloak/build/ck-server /app/ck-server
 COPY config/cloak-server.conf /app/config.json
 COPY scripts/entrypoint-cloak-server.sh /app/entrypoint.sh
+
+VOLUME /app
+
 RUN chmod +x ck-server entrypoint.sh
 
 ENTRYPOINT [ "./entrypoint.sh" ]
