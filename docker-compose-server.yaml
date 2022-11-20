@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   cloak-server:
-    image: freddykrum/cloaksocks:ss-server
+    image: freddykrum/cloaksocks:ck-server
     ports:
       - "$BINDPORT:$BINDPORT"
     environment:
@@ -26,7 +26,7 @@ services:
         condition: always
 
   shadowsocks-server:
-    image: freddykrum/cloaksocks:ck-server
+    image: freddykrum/cloaksocks:ss-server
     ports:
       - "$LOCAL_PORT:$LOCAL_PORT"
     environment:
