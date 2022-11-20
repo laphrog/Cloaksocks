@@ -11,7 +11,7 @@ sed -i "s|REDIRADDR|${REDIRADDR}|" /app/config.json
 sed -i "s|PRIVATEKEY|${PRIVATEKEY}|" /app/config.json
 sed -i "s|ADMINUID|${ADMINUID}|" /app/config.json
 sed -i "s|SERVERNAME|${REDIRADDR}|" /app/config.json
-
+sed -i "s|BINDADDR|${BINDADDR}|" /app/config.json
 
 echo -e '[+] Config.json generated successfully.'
 echo -e '[+] Show Container config'
