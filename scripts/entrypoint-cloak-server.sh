@@ -27,17 +27,4 @@ echo -e "[!] SS Encryption : \t${ENCRYPTION}"
 echo -e "[!] SS Password : \t${PASSWORD}"
 echo -e "[+] Happy Domain Fronting :)"
 
-SERVER_BASE64=$(printf "%s" "$ENCRYPTION:$PASSWORD" | base64)
-SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKEY;ServerName=$REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
-SERVER_CLOAK_ARGS=$(printf "%s" "$SERVER_CLOAK_ARGS" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | cut -c 3-)
-SERVER_BASE64="ss://$SERVER_BASE64@$LOCAL_IP:$BINDPORT?plugin=$SERVER_CLOAK_ARGS"
-echo "Download Cloak Android Client from https://github.com/cbeuw/Cloak-android/releases"
-echo "Download Cloak PC Client from https://github.com/cbeuw/Cloak/releases"
-echo "Make sure you have the ck-plugin installed and then Scan this QR:"
-echo
-qrencode -t ansiutf8 "$SERVER_BASE64"
-echo
-echo "Or just use the link below:"
-echo $SERVER_BASE64
-
 exec "$@"
