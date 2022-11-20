@@ -16,7 +16,7 @@ RUN make
 FROM alpine:latest
 
 RUN apk upgrade \
-    && apk add tzdata libqrencode \
+    && apk add tzdata \
     && rm -rf /var/cache/apk/*
     
 ENV LOCAL_IP     127.0.0.1
