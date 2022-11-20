@@ -140,3 +140,11 @@ go-shadowsocks2 -c 'ss://AEAD_CHACHA20_POLY1305:your-password@[server_address]:8
 ```
 
 Replace `[server_address]` with the server's public address.
+
+
+## Fork
+
+This project is based on the great work of [Andy Wang(cbeuw)](https://github.com/cbeuw/Cloak) and [huashaoli](https://github.com/huashaoli/cloak-shadowsocks-docker).
+
+`Cloaksocks` and `cloak-shadowsocks-docker` are almost two different projects. Make sure to use the right documents when working with them.
+
