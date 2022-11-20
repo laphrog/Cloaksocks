@@ -37,10 +37,9 @@ WORKDIR /app
 COPY --from=build /opt/Cloak/build/ck-server /app/ck-server
 COPY config/cloak-server.conf /app/config.json
 COPY scripts/entrypoint-cloak-server.sh /app/entrypoint.sh
+RUN chmod +x ck-server entrypoint.sh
 
 VOLUME /app
-
-RUN chmod +x ck-server entrypoint.sh
 
 ENTRYPOINT [ "./entrypoint.sh" ]
 CMD [ "/app/ck-server" , "-c" , "/app/config.json" ]
