@@ -137,7 +137,6 @@ else
         QueryInfo
 fi
 
-
 ReadArgs
 ReplaceArgs
 docker-compose up -d
