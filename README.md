@@ -146,5 +146,5 @@ Replace `[server_address]` with the server's public address.
 
 This project is based on the great work of [Andy Wang(cbeuw)](https://github.com/cbeuw/Cloak) and [huashaoli](https://github.com/huashaoli/cloak-shadowsocks-docker).
 
-`Cloaksocks` and `cloak-shadowsocks-docker` are almost two different projects. Make sure to use the right documents when working with them.
+`Cloaksocks` and `cloak-shadowsocks-docker` are two different projects. Make sure to use the right documents when working with them.
 
