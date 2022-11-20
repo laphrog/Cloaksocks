@@ -3,7 +3,7 @@ services:
   cloak-server:
     image: TBD
     ports:
-      - "443:443"
+      - "$BINDPORT:$BINDPORT"
     environment:
       LOCAL_IP:     $LOCAL_IP
       LOCAL_PORT:   $LOCAL_PORT
@@ -28,7 +28,7 @@ services:
   shadowsocks-server:
     image: TBD
     ports:
-      - "8399:8399"
+      - "$LOCAL_PORT:$LOCAL_PORT"
     environment:
       SERVER_IP:     0.0.0.0
       SERVER_PORT:   $LOCAL_PORT
