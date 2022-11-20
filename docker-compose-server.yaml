@@ -15,7 +15,7 @@ services:
       PUBLICKEY:    $PUBLICKEY
       ENCRYPTION:   $ENCRYPTION
       PASSWORD:     $PASSWORD
-      BINDADDR:     $BINDADDR
+      BINDPORT:     $BINDPORT
       
     networks:
       - external
