@@ -7,7 +7,7 @@ echo -e "=======================================================================
 sed -i "s|LOCAL_IP|${LOCAL_IP}|" /app/config.json
 sed -i "s|LOCAL_PORT|${LOCAL_PORT}|" /app/config.json
 sed -i "s|BYPASSUID|${BYPASSUID}|" /app/config.json
-sed -i "s|SERVERNAME|${REDIRADDR}|" /app/config.json
+sed -i "s|REDIRADDR|${REDIRADDR}|" /app/config.json
 sed -i "s|PRIVATEKEY|${PRIVATEKEY}|" /app/config.json
 sed -i "s|ADMINUID|${ADMINUID}|" /app/config.json
 sed -i "s|SERVERNAME|${REDIRADDR}|" /app/config.json
