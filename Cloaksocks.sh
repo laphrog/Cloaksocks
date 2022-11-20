@@ -50,7 +50,7 @@ ReadArgs(){
 	read -e -p "Enter PrivateKey: " -i "$PrivateKey" PRIVATEKEY
 	read -e -p "Enter PublicKey: " -i "$PublicKey" PUBLICKEY
 	read -e -p "Enter Encryption method: " -i "AEAD_CHACHA20_POLY1305" ENCRYPTION  #List
-	read -e -p "Enter Cloak Port (443 is strongly recommended): " -i "443" BINDADDR
+	read -e -p "Enter Cloak Port (443 is strongly recommended): " -i "443" BINDPORT
 	stty -echo
 	read -p "Enter Password: " -i "" PASSWORD
 	stty echo
@@ -111,7 +111,7 @@ ShowConnectionInfo(){
 	SERVER_BASE64=$(printf "%s" "$ENCRYPTION:$PASSWORD" | base64)
 	SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKEY;ServerName=$REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
 	SERVER_CLOAK_ARGS=$(printf "%s" "$SERVER_CLOAK_ARGS" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | cut -c 3-)
-	SERVER_BASE64="ss://$SERVER_BASE64@$LOCAL_IP:$LOCAL_PORT?plugin=$SERVER_CLOAK_ARGS"
+	SERVER_BASE64="ss://$SERVER_BASE64@$LOCAL_IP:$BINDPORT?plugin=$SERVER_CLOAK_ARGS"
 
 	echo  "=============================================================================="
 	echo  "=============================================================================="
