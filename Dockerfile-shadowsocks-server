@@ -22,6 +22,5 @@ ENV PASSWORD      $PASSWORD
 WORKDIR /app
 COPY --from=build /go/bin/go-shadowsocks2 /app/shadowsocks-server
 COPY scripts/entrypoint-shadowsocks-server.sh /app/entrypoint.sh
-RUN chmod +x shadowsocks-server
-RUN chmod +x entrypoint.sh
+RUN chmod +x shadowsocks-server entrypoint.sh
 ENTRYPOINT [ "./entrypoint.sh" ]
