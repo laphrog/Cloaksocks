@@ -12,10 +12,9 @@ services:
       REDIRADDR:    $REDIRADDR
       PRIVATEKEY:   $PRIVATEKEY
       ADMINUID:     $ADMINUID
-      PUBLICKKEY:   $PUBLICKKEY
+      PUBLICKEY:    $PUBLICKEY
       ENCRYPTION:   $ENCRYPTION
       PASSWORD:     $PASSWORD
-      DOMAIN:       example.com
       
     networks:
       - external
