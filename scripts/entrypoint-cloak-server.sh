@@ -22,13 +22,13 @@ echo -e "[!] BypassUID : \t${BYPASSUID}"
 echo -e "[!] Server Name : \t${REDIRADDR}"
 echo -e "[!] PrivateKey : \t${PRIVATEKEY}"
 echo -e "[!] AdminUID : \t\t${ADMINUID}"
-echo -e "[!] PublickKey : \t${PUBLICKKEY}"
+echo -e "[!] PublicKey : \t${PUBLICKEY}"
 echo -e "[!] SS Encryption : \t${ENCRYPTION}"
 echo -e "[!] SS Password : \t${PASSWORD}"
 echo -e "[+] Happy Domain Fronting :)"
 
 SERVER_BASE64=$(printf "%s" "$ENCRYPTION:$PASSWORD" | base64)
-SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKKEY;ServerName=$REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
+SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKEY;ServerName=$REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
 SERVER_CLOAK_ARGS=$(printf "%s" "$SERVER_CLOAK_ARGS" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | cut -c 3-)
 SERVER_BASE64="ss://$SERVER_BASE64@$LOCAL_IP:$LOCAL_PORT?plugin=$SERVER_CLOAK_ARGS"
 echo "Download Cloak Android Client from https://github.com/cbeuw/Cloak-android/releases"
