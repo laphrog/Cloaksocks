@@ -45,11 +45,12 @@ QueryInfo(){
 
 ReadArgs(){
 	read -e -p "Enter your ip address: " -i "$DefIP" LOCAL_IP
-	read -e -p "Enter desired port for Shadowsocks: " -i "8399" LOCAL_PORT
+	read -e -p "Enter Shadowsocks Port: " -i "8399" LOCAL_PORT
 	read -e -p "Enter ByPassUID: " -i "$CloakUID" BYPASSUID
 	read -e -p "Enter PrivateKey: " -i "$PrivateKey" PRIVATEKEY
 	read -e -p "Enter PublicKey: " -i "$PublicKey" PUBLICKEY
 	read -e -p "Enter Encryption method: " -i "AEAD_CHACHA20_POLY1305" ENCRYPTION  #List
+	read -e -p "Enter Cloak Port (443 is strongly recommended): " -i "443" BINDADDR
 	stty -echo
 	read -p "Enter Password: " -i "" PASSWORD
 	stty echo
@@ -103,6 +104,7 @@ ReplaceArgs(){
 	sed -i "s|\$PASSWORD|${PASSWORD}|" docker-compose.yml
 	sed -i "s|\$ADMINUID|${ADMINUID}|" docker-compose.yml
 	sed -i "s|\$REDIRADDR|${REDIRADDR}|" docker-compose.yml
+	sed -i "s|\$BINDADDR|${BINDADDR}|" docker-compose.yml
 }
 
 ShowConnectionInfo(){
