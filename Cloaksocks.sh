@@ -37,10 +37,10 @@ InstallDep(){
 
 QueryInfo(){
 	DefIP=$(hostname -I | awk '{print $1}')
-	KEYPAIRS=$(bin/ck-server -key)
+	KEYPAIRS=$(bin/ck_server -key)
 	PrivateKey=$(echo $KEYPAIRS | cut -d" " -f13)
 	PublicKey=$(echo $KEYPAIRS | cut -d" " -f5)
-	CloakUID=$(bin/ck-server -uid | cut -d" " -f4)
+	CloakUID=$(bin/ck_server -uid | cut -d" " -f4)
 }
 
 ReadArgs(){
@@ -102,11 +102,12 @@ ReplaceArgs(){
 	sed -i "s|\$ENCRYPTION|${ENCRYPTION}|" docker-compose.yml
 	sed -i "s|\$PASSWORD|${PASSWORD}|" docker-compose.yml
 	sed -i "s|\$ADMINUID|${ADMINUID}|" docker-compose.yml
+	sed -i "s|\$REDIRADDR|${REDIRADDR}|" docker-compose.yml
 }
 
 ShowConnectionInfo(){
 	SERVER_BASE64=$(printf "%s" "$ENCRYPTION:$PASSWORD" | base64)
-	SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKKEY;ServerName=$REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
+	SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKEY;ServerName=$REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
 	SERVER_CLOAK_ARGS=$(printf "%s" "$SERVER_CLOAK_ARGS" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | cut -c 3-)
 	SERVER_BASE64="ss://$SERVER_BASE64@$LOCAL_IP:$LOCAL_PORT?plugin=$SERVER_CLOAK_ARGS"
 
@@ -126,11 +127,11 @@ ShowConnectionInfo(){
 }
 
 
-if [ -x bin/ck-server ]
+if [ -x bin/ck_server ]
 then
         QueryInfo
 else
-        chmod +x ck-server
+        chmod +x ck_server
         QueryInfo
 fi
 
