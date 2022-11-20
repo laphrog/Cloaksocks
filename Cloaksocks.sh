@@ -96,7 +96,7 @@ ReadArgs(){
 ReplaceArgs(){
 	cp docker-compose-server.yaml docker-compose.yml
 	sed -i "s|\$LOCAL_IP|${LOCAL_IP}|" docker-compose.yml 
-	sed -i "s|\$LOCAL_PORT|${LOCAL_PORT}|" docker-compose.yml
+	sed -i "s|\$LOCAL_PORT|${LOCAL_PORT}|g" docker-compose.yml
 	sed -i "s|\$BYPASSUID|${BYPASSUID}|" docker-compose.yml
 	sed -i "s|\$PRIVATEKEY|${PRIVATEKEY}|" docker-compose.yml
 	sed -i "s|\$PUBLICKEY|${PUBLICKEY}|" docker-compose.yml
@@ -104,7 +104,7 @@ ReplaceArgs(){
 	sed -i "s|\$PASSWORD|${PASSWORD}|" docker-compose.yml
 	sed -i "s|\$ADMINUID|${ADMINUID}|" docker-compose.yml
 	sed -i "s|\$REDIRADDR|${REDIRADDR}|" docker-compose.yml
-	sed -i "s|\$BINDADDR|${BINDADDR}|" docker-compose.yml
+	sed -i "s|\$BINDPORT|${BINDPORT}|g" docker-compose.yml
 }
 
 ShowConnectionInfo(){
