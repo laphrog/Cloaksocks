@@ -27,7 +27,7 @@ ENV ENCRYPTION   AEAD_CHACHA20_POLY1305
 ENV PASSWORD     null
 ENV BINDPORT     443
 
-EXPOSE 443/tcp 
+EXPOSE 443/tcp
 
 WORKDIR /app
 COPY --from=build /opt/Cloak/build/ck-server /app/ck-server
