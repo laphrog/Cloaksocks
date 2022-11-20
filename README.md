@@ -49,7 +49,7 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 | Key | Description |
 | --- | --- |
 | LOCAL_IP | Your server IP |
-| LOCAL_PORT | Application listening port |
+| LOCAL_PORT | Application listening port (Default `8399`) |
 | METHOD | shadowsocks |
 | BYPASSUID | UID Genetated by Cloak that is authorised without any restrictions. `ck-server -uid` |
 | REDIRADDR | redirection address when the incoming traffic is not from a Cloak client (Ideally it should be set to a major website allowed by the censor.) |
@@ -61,15 +61,15 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 ## Cloak Client
 | Key | Default value | Description |
 | --- | --- | --- |
-| TRANSPORT | direct | If the server host wishes you to connect to it directly, use direct. |
-| METHOD | shadowsocks | the proxy method you are using. |
-| ENCRYPTION | plain |  encryption algorithm you want Cloak to use. |
-| CLIENTUID | UID obtained in the previous table | |
-| PUBLICKEY | PubKey obtained in the previous table | is the static curve25519 public key, given by the server admin |
+| TRANSPORT | direct | If the server host wishes you to connect to it directly, use direct. `direct/cdn` |
+| METHOD | shadowsocks | The proxy method you are using. |
+| ENCRYPTION | plain |  Encryption algorithm you want **Cloak Client** to use. `plain/aes-256-gcm/aes-128-gcm/chacha20-poly1305` |
+| CLIENTUID | UID obtained in the previous table | UIDs that are authorised without any bandwidth or credit limit restrictions. |
+| PUBLICKEY | PubKey obtained in the previous table | Is the static curve25519 public key. |
 | SERVERNAME | 1.0.0.1 | domain you want to make your ISP or firewall think you are visiting. Better be the same value as REDIRADDR |
-| CONNECTIONNUM | 4 | amount of underlying TCP connections you want to use |
-| BROWSER | chrome | the browser you want to appear to be using. It's not relevant to the browser you are actually using. Currently, `chrome` and `firefox` are supported. |      
-| LOCAL_PORT | 443 | |
+| BINDPORT | 443 | The port used by Cloak Server |
+| CONNECTIONNUM | 4 | amount of underlying TCP connections you want to use. |
+| BROWSER | chrome | the browser you want to appear to be using. It's not relevant to the browser you are actually using. `chrome/firefox` |      
 | ADMINUID | Admin UID obtained in the previous table | |
 
 ## Shadowsocks Server
@@ -77,7 +77,7 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 | --- | --- | --- |
 | SERVER_IP | 0.0.0.0 | Application listening IP |
 | SERVER_PORT | 8399 | Application listening Port |
-| ENCRYPTION | AEAD_CHACHA20_POLY1305 | Encryption Method (`AES-256-CFB` is not supported) | 
+| ENCRYPTION | AEAD_CHACHA20_POLY1305 | Shadowsocks Server encryption method (Better use the default value. Other Ciphers might not work.) | 
 | PASSWORD | `null` | Your password |
 
 # Cloak Configuration
