@@ -11,7 +11,7 @@ sed -i "s|REDIRADDR|${REDIRADDR}|" /app/config.json
 sed -i "s|PRIVATEKEY|${PRIVATEKEY}|" /app/config.json
 sed -i "s|ADMINUID|${ADMINUID}|" /app/config.json
 sed -i "s|SERVERNAME|${REDIRADDR}|" /app/config.json
-sed -i "s|BINDADDR|${BINDADDR}|" /app/config.json
+sed -i "s|BINDPORT|${BINDPORT}|" /app/config.json
 
 echo -e '[+] Config.json generated successfully.'
 echo -e '[+] Show Container config'
@@ -30,7 +30,7 @@ echo -e "[+] Happy Domain Fronting :)"
 SERVER_BASE64=$(printf "%s" "$ENCRYPTION:$PASSWORD" | base64)
 SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKEY;ServerName=$REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
 SERVER_CLOAK_ARGS=$(printf "%s" "$SERVER_CLOAK_ARGS" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | cut -c 3-)
-SERVER_BASE64="ss://$SERVER_BASE64@$LOCAL_IP:$LOCAL_PORT?plugin=$SERVER_CLOAK_ARGS"
+SERVER_BASE64="ss://$SERVER_BASE64@$LOCAL_IP:$BINDPORT?plugin=$SERVER_CLOAK_ARGS"
 echo "Download Cloak Android Client from https://github.com/cbeuw/Cloak-android/releases"
 echo "Download Cloak PC Client from https://github.com/cbeuw/Cloak/releases"
 echo "Make sure you have the ck-plugin installed and then Scan this QR:"
