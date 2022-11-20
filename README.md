@@ -50,10 +50,10 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 | --- | --- |
 | LOCAL_IP | Your server IP |
 | LOCAL_PORT | Application listening port (Default `8399`) |
-| METHOD | shadowsocks |
+| METHOD | In this project `shadowsocks` |
 | BYPASSUID | UID Genetated by Cloak that is authorised without any restrictions. `ck-server -uid` |
-| REDIRADDR | redirection address when the incoming traffic is not from a Cloak client (Ideally it should be set to a major website allowed by the censor.) |
-| PRIVATEKEY | static curve25519 Diffie-Hellman private key encoded in base64. `ck-server -k` |
+| REDIRADDR | Redirection address when the incoming traffic is not from a Cloak client. (Ideally it should be set to a major website allowed by the censor.) |
+| PRIVATEKEY | Static curve25519 Diffie-Hellman private key encoded in base64. `ck-server -k` |
 | ADMINUID | UID of the admin user in base64 (Optional) `ck-server -uid` |
 
 
