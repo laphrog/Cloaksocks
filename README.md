@@ -10,12 +10,6 @@
 ![Dockerfile](https://img.shields.io/badge/Dockerfile-Ready-brightgreen)
 ![Docker Compose](https://img.shields.io/badge/Docker_Compose-Ready-brightgreen)
 ![Docker Build](https://img.shields.io/badge/Docker_Build-Automatic-brightgreen)
-# Dockerfiles
-
-|File name| Description |
-|---|---|
-|Dockerfile-cloak-server| Alpine container with Cloak Server |
-|Dockerfile-shadowsocks-server| Alpine container with Golang ShadowSocks Server |
 
 # How to utilize
 You have many options:
@@ -62,6 +56,12 @@ Well, if you're looking for a specific Cloak/Shadowsocks version, Use the Docker
 Make sure to edit the `Dockerfiles` properly. Different app versions might need specific compiling configurations. <br />
 Better have a little knowledge in Docker before using this method.
 
+# Dockerfiles
+
+|File name| Description |
+|---|---|
+|Dockerfile-cloak-server| Alpine container with Cloak Server |
+|Dockerfile-shadowsocks-server| Alpine container with Golang ShadowSocks Server |
 
 # Supported Variables
 
