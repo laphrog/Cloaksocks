@@ -13,7 +13,7 @@
 
 # How to utilize
 **You have many options:**
-### Using the shell script
+### Use the shell script
 Using `Cloaksocks.sh` is the recommended action:
 
 ```bash
@@ -24,7 +24,7 @@ chmod +x Cloaksocks.sh
 Then follow the instructions. Fast and Simple.
 The script creates a `docker-compose.yml` with your desired configuration and then starts the stack.
 
-### Using docker-compose directly
+### Use docker-compose directly
 If you want to manually configure the `docker-compose` file, make sure to check the "Supported Variables" section first.
 Then simply edit and run `docker-compose-server.yaml`
 
@@ -32,7 +32,7 @@ Then simply edit and run `docker-compose-server.yaml`
 docker-compose -f docker-compose-server.yaml up -d
 ```
 
-### Using Docker Images or Dockerfile
+### Use DockerHub or Dockerfile
 Both Cloak (2.6.0) and Shadowsocks (0.1.5) are both dockerized and available on `hub.docker.com`
 
 Start Shadowsocks using:
@@ -50,7 +50,7 @@ ADMINUID='' -v ssvol:/app --restart unless-stopped freddykrum/cloaksocks:ck-serv
 Then you should create the Cloak Client config yourself using the Supported Variables. Which is NOT recommended. (Use the damn script!) <br />
 I might as well add a script to create the Client Configs separately but it's not available for now.
 
-### Building your own Image
+### Build your own Images
 Well, if you're looking for a specific Cloak/Shadowsocks version, Use the Dockerfiles `cloak-server` & `shadowsocks-server` to compile and create the image.<br />
 
 Make sure to edit the `Dockerfiles` properly. Different app versions might need specific compiling configurations. <br />
