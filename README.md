@@ -39,8 +39,11 @@ docker-compose -f docker-compose-server.yaml up -d
 ```
 
 ### Using Docker Images or Dockerfile
-Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.docker.com
-
+Both Cloak (2.6.0) and Shadowsocks (0.1.5) are both dockerized and available on `hub.docker.com`.
+```bash
+docker run -d --name ss-server -p 443:443 -e SERVER_PORT='8399' PASSWORD='pass' \
+-v ssvol:/app --restart unless-stopped freddykrum/cloaksocks:ss-server
+```
 
 
 # Supported Variables
