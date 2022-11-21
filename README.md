@@ -62,7 +62,6 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 | BYPASSUID | UID Genetated by Cloak that is authorised without any restrictions. `ck-server -uid` |
 | REDIRADDR | Redirection address when the incoming traffic is not from a Cloak client. (Ideally it should be set to a major website allowed by the censor.) |
 | PRIVATEKEY | Static curve25519 Diffie-Hellman private key encoded in base64. `ck-server -k` |
-| BINDPORT | `443` | The port used by Cloak Server |
 | ADMINUID | UID of the admin user in base64 (Optional) `ck-server -uid` |
 
 ## Cloak Client
@@ -75,6 +74,7 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 | PUBLICKEY | PubKey obtained in the previous table | Is the static curve25519 public key. |
 | SERVERNAME | `1.0.0.1` | domain you want to make your ISP or firewall think you are visiting. Better be the same value as REDIRADDR |
 | BROWSER | `chrome` | the browser you want to appear to be using. It's not relevant to the browser you are actually using. `chrome/firefox` |
+| BINDPORT | `443` | The port used by Cloak Server |
 | CONNECTIONNUM | `4` | amount of underlying TCP connections you want to use. |
 | ADMINUID | Admin UID obtained in the previous table | |
 
