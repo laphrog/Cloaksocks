@@ -75,7 +75,7 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 ## Shadowsocks Server
 | Key | Default value | Description |
 | --- | --- | --- |
-| SERVER_IP | `0.0.0.0` | Application listening IP |
+| SERVER_IP | `0.0.0.0` | Application listening IP(`0.0.0.0` means the same `localhost` in Docker) |
 | SERVER_PORT | `8399` | Application listening Port |
 | ENCRYPTION | `AEAD_CHACHA20_POLY1305` | Shadowsocks Server encryption method (Better use the default value. Other Ciphers might not work.) | 
 | PASSWORD | `null` | Your password |
