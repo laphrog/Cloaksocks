@@ -69,7 +69,7 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 | --- | --- | --- |
 | TRANSPORT | `direct` | If the server host wishes you to connect to it directly, use direct. `direct/cdn` |
 | METHOD | `shadowsocks` | The proxy method you are using. |
-| ENCRYPTION | `plain` |  Encryption algorithm you want **Cloak Client** to use. `plain/aes-256-gcm/aes-128-gcm/chacha20-poly1305`. Use `plain` SS encrypts your data itself. *not to be confused with SS SERVER ENCRYPTION* |
+| ENCRYPTION | `plain` |  Encryption algorithm you want **Cloak Client** to use. `plain/aes-256-gcm/aes-128-gcm/chacha20-poly1305`. Use `plain` SS encrypts your data itself. #*not to be confused with SS SERVER ENCRYPTION* |
 | CLIENTUID | UID obtained in the previous table | UIDs that are authorised without any bandwidth or credit limit restrictions. |
 | PUBLICKEY | PubKey obtained in the previous table | Is the static curve25519 public key. |
 | SERVERNAME | `1.0.0.1` | domain you want to make your ISP or firewall think you are visiting. Better be the same value as REDIRADDR |
