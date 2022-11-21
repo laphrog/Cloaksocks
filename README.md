@@ -53,7 +53,7 @@ and then start the Cloak using:
 docker run -d --name ck-server -p 443:443 -e BINDPORT='443' BYPASSUID='' PRIVATEKEY='' \
 ADMINUID='' -v ssvol:/app --restart unless-stopped freddykrum/cloaksocks:ck-server
 ```
-Then you should create the Cloak Client config yourself using the Supported Variables. Which is NOT recommended. (Use the damn script!)
+Then you should create the Cloak Client config yourself using the Supported Variables. Which is NOT recommended. (Use the damn script!) <br />
 I might as well add a script to create the Client Configs separately but it's not available for now.
 
 # Supported Variables
@@ -82,7 +82,7 @@ I might as well add a script to create the Client Configs separately but it's no
 | --- | --- | --- |
 | TRANSPORT | `direct` | If the server host wishes you to connect to it directly, use direct. `direct/cdn` |
 | METHOD | `shadowsocks` | The proxy method you are using. |
-| ENCRYPTION | `plain` |  Encryption algorithm you want **Cloak Client** to use. `plain/aes-256-gcm/aes-128-gcm/chacha20-poly1305`. Use `plain` SS encrypts your data itself. [*not to be confused with SS SERVER `ENCRYPTION`*] |
+| ENCRYPTION | `plain` |  Encryption algorithm you want **Cloak Client** to use. `plain/aes-256-gcm/aes-128-gcm/chacha20-poly1305`. Use `plain` SS encrypts your data itself.<br />[*not to be confused with SS SERVER `ENCRYPTION`*] |
 | CLIENTUID | UID obtained in the previous table | UIDs that are authorised without any bandwidth or credit limit restrictions. |
 | PUBLICKEY | PubKey obtained in the previous table | Is the static curve25519 public key. |
 | SERVERNAME | `1.0.0.1` | domain you want to make your ISP or firewall think you are visiting. Better be the same value as REDIRADDR |
