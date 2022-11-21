@@ -39,12 +39,22 @@ docker-compose -f docker-compose-server.yaml up -d
 ```
 
 ### Using Docker Images or Dockerfile
-Both Cloak (2.6.0) and Shadowsocks (0.1.5) are both dockerized and available on `hub.docker.com`.
+Both Cloak (2.6.0) and Shadowsocks (0.1.5) are both dockerized and available on `hub.docker.com`
+
+Start Shadowsocks using:
+
 ```bash
-docker run -d --name ss-server -p 443:443 -e SERVER_PORT='8399' PASSWORD='pass' \
+docker run -d --name ss-server -p 8399:8399 -e SERVER_PORT='8399' PASSWORD='pass' \
 -v ssvol:/app --restart unless-stopped freddykrum/cloaksocks:ss-server
 ```
+and then start the Cloak using:
 
+```bash
+docker run -d --name ck-server -p 443:443 -e BINDPORT='443' BYPASSUID='' PRIVATEKEY='' \
+ADMINUID='' -v ssvol:/app --restart unless-stopped freddykrum/cloaksocks:ck-server
+```
+Then you should create the Cloak Client config yourself using the Supported Variables. Which is NOT recommended. (Use the damn script!)
+I might as well add a script to create the Client Configs separately but it's not available for now.
 
 # Supported Variables
 
