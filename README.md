@@ -56,6 +56,12 @@ ADMINUID='' -v ssvol:/app --restart unless-stopped freddykrum/cloaksocks:ck-serv
 Then you should create the Cloak Client config yourself using the Supported Variables. Which is NOT recommended. (Use the damn script!) <br />
 I might as well add a script to create the Client Configs separately but it's not available for now.
 
+### Building your own Image
+Well, if you're looking for a specific Cloak/Shadowsocks version, Use the Dockerfiles `Dockerfile-cloak-server` & `Dockerfile-shadowsocks-server` to compile and create the image. <br />
+Make sure to edit the Dockerfiles properly. Different app versions might need specific compiling configurations. <br />
+Better have a little knowledge in Docker before using this method.
+
+
 # Supported Variables
 
 ## Shadowsocks Server
