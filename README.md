@@ -25,7 +25,7 @@ Then follow the instructions. Fast and Simple.
 The script creates a `docker-compose.yml` with your desired configuration and then starts the stack.
 
 ### Use docker-compose directly
-If you want to manually configure the `docker-compose` file, make sure to check the "Supported Variables" section first.
+In case you want to manually configure the `docker-compose` file, make sure to check the "Supported Variables" section first.
 Then simply edit and run `docker-compose-server.yaml`
 
 ```bash
