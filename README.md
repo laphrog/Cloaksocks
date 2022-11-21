@@ -56,7 +56,13 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 | PRIVATEKEY | Static curve25519 Diffie-Hellman private key encoded in base64. `ck-server -k` |
 | ADMINUID | UID of the admin user in base64 (Optional) `ck-server -uid` |
 
-
+## Shadowsocks Server
+| Key | Default value | Description |
+| --- | --- | --- |
+| SERVER_IP | `0.0.0.0` | Application listening IP (`0.0.0.0` means `localhost` in Docker) |
+| SERVER_PORT | `8399` | Application listening Port |
+| ENCRYPTION | `AEAD_CHACHA20_POLY1305` | Shadowsocks Server encryption method (Better use the default value. Other Ciphers might not work.) | 
+| PASSWORD | `null` | Your password |
 
 ## Cloak Client
 | Key | Default value | Description |
@@ -71,14 +77,6 @@ Both Cloak(2.6.0) and Shadowsocks(0.1.5) are dockerized and available on hub.doc
 | BROWSER | `chrome` | the browser you want to appear to be using. It's not relevant to the browser you are actually using. `chrome/firefox` |
 | CONNECTIONNUM | `4` | amount of underlying TCP connections you want to use. |
 | ADMINUID | Admin UID obtained in the previous table | |
-
-## Shadowsocks Server
-| Key | Default value | Description |
-| --- | --- | --- |
-| SERVER_IP | `0.0.0.0` | Application listening IP (`0.0.0.0` means `localhost` in Docker) |
-| SERVER_PORT | `8399` | Application listening Port |
-| ENCRYPTION | `AEAD_CHACHA20_POLY1305` | Shadowsocks Server encryption method (Better use the default value. Other Ciphers might not work.) | 
-| PASSWORD | `null` | Your password |
 
 # Cloak Configuration
 [Cloak Manual - Offical Repo.](https://github.com/cbeuw/Cloak/blob/master/README.md)
