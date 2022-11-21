@@ -57,7 +57,7 @@ Make sure to edit the `Dockerfiles` properly. Different app versions might need 
 Better have a little knowledge in Docker before using this method.
 
 ###  DIVE IN
-In case you hate me or want to contribute to the (project)[https://github.com/TheOldGoldenFish/Cloaksocks], dive in and rip the code. Utilize it how ever you want.
+In case you hate me or want to contribute to the [project](https://github.com/TheOldGoldenFish/Cloaksocks), dive in and rip the code. Utilize it how ever you want.
 
 # Dockerfiles
 
