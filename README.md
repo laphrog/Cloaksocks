@@ -12,7 +12,7 @@
 ![Docker Build](https://img.shields.io/badge/Docker_Build-Automatic-brightgreen)
 
 # How to utilize
-You have many options:
+**You have many options:**
 ### Using the shell script
 Using `Cloaksocks.sh` is the recommended action:
 
@@ -55,6 +55,9 @@ Well, if you're looking for a specific Cloak/Shadowsocks version, Use the Docker
 
 Make sure to edit the `Dockerfiles` properly. Different app versions might need specific compiling configurations. <br />
 Better have a little knowledge in Docker before using this method.
+
+###  DIVE IN
+In case you hate me or want to contribute to the project, dive in and rip the code. Utilize it how ever you want.
 
 # Dockerfiles
 
