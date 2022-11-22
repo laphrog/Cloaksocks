@@ -138,6 +138,7 @@ else
 fi
 
 ReadArgs
+InstallDep
 ReplaceArgs
 docker-compose up -d
 ShowConnectionInfo
