@@ -49,12 +49,12 @@ QueryInfo(){
 }
 
 ReadArgs(){
-	echo "Please select your preferred ip address: "
+	echo "Your available addresses: "
 
 	for i in $(seq 1 $(expr $(echo ${#DefIP[@]}) - 1)); do
 	echo "$i) ${DefIP[$i]} "
 	done
-	read -e -i "1" OPTIONS
+	read -e -p "Select your preferred IP address: " -i "1" OPTIONS
 
 	LOCAL_IP=$(echo ${DefIP[$OPTIONS]})
 
