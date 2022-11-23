@@ -50,7 +50,27 @@ ReadArgs(){
 	read -e -p "Enter ByPassUID: " -i "$CloakUID" BYPASSUID
 	read -e -p "Enter PrivateKey: " -i "$PrivateKey" PRIVATEKEY
 	read -e -p "Enter PublicKey: " -i "$PublicKey" PUBLICKEY
-	read -e -p "Enter Encryption method: " -i "AEAD_CHACHA20_POLY1305" ENCRYPTION  #List
+
+
+
+	echo "Encryption methods: "
+	echo "1) aes-256-gcm"
+	echo "2) aes-128-gcm"
+	echo "3) chacha20-ietf-poly1305 (Recommended)"
+	read -e -p "Select Encryption method (AEAD_CHACHA20_POLY1305 is the default value. Other ciphers might not work.): " -i "3" OPTIONS
+	
+	case $OPTIONS in
+	1)
+		ENCRYPTION="AES-256-GCM";;
+	2)
+		ENCRYPTION="AES-128-GCM";;
+	3)
+		ENCRYPTION="AEAD_CHACHA20_POLY1305";;
+	esac
+
+	ENCRYPTION_LC=$(echo $ENCRYPTION | tr A-Z a-z)
+
+
 	read -e -p "Enter Cloak Port (443 is strongly recommended): " -i "443" BINDPORT
 	stty -echo
 	read -p "Enter Password: " -i "" PASSWORD
@@ -110,7 +130,7 @@ ReplaceArgs(){
 }
 
 ShowConnectionInfo(){
-	SERVER_BASE64=$(printf "%s" "$ENCRYPTION:$PASSWORD" | base64)
+	SERVER_BASE64=$(printf "%s" "$ENCRYPTION_LC:$PASSWORD" | base64)
 	SERVER_CLOAK_ARGS="ck-client;UID=$BYPASSUID;PublicKey=$PUBLICKEY;ServerName=$REDIRADDR;TicketTimeHint=3600;MaskBrowser=chrome;NumConn=4"
 	SERVER_CLOAK_ARGS=$(printf "%s" "$SERVER_CLOAK_ARGS" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | cut -c 3-)
 	SERVER_BASE64="ss://$SERVER_BASE64@$LOCAL_IP:$BINDPORT?plugin=$SERVER_CLOAK_ARGS"
