@@ -37,7 +37,7 @@ InstallDep(){
 
 QueryInfo(){
 
-	DefIP=$(curl -s https://ipecho.net/plain) > /dev/null
+	DefIP=$(curl -s https://ipecho.net/plain)
 	KEYPAIRS=$(bin/ck_server -key)
 	PrivateKey=$(echo $KEYPAIRS | cut -d" " -f13)
 	PublicKey=$(echo $KEYPAIRS | cut -d" " -f5)
