@@ -11,7 +11,7 @@ echo
 
 
 InstallDep(){
-	rpm -qa | grep docker-ce
+	rpm -qa | grep docker-ce > /dev/null
 	if [ $? -eq 1 ]
 	then
 		yum install -y yum-utils
@@ -20,7 +20,7 @@ InstallDep(){
 		systemctl start docker
 	fi
 	
-	docker-compose version
+	docker-compose version > /dev/null
 	if [ $? -eq 1 ]
 	then
 		curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" \
@@ -28,7 +28,7 @@ InstallDep(){
 		chmod +x /usr/local/bin/docker-compose
 	fi
 	
-	rpm -qa | grep qrencode
+	rpm -qa | grep qrencode > /dev/null
 	if [ $? -eq 1 ]
 	then
 		yum install qrencode
