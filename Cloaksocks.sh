@@ -37,11 +37,7 @@ InstallDep(){
 
 QueryInfo(){
 
-	DefIP=$(hostname -I)
-	for i in $(seq 1 $(echo $DefIP | wc -w)); do
-	DefIP[$i]=$(echo $DefIP | cut -d' ' -f$i)
-	done
-
+	DefIP=$(curl https://ipecho.net/plain)
 	KEYPAIRS=$(bin/ck_server -key)
 	PrivateKey=$(echo $KEYPAIRS | cut -d" " -f13)
 	PublicKey=$(echo $KEYPAIRS | cut -d" " -f5)
@@ -49,15 +45,7 @@ QueryInfo(){
 }
 
 ReadArgs(){
-	echo "Your available addresses: "
-
-	for i in $(seq 1 $(expr $(echo ${#DefIP[@]}) - 1)); do
-	echo "$i) ${DefIP[$i]} "
-	done
-	read -e -p "Select your preferred IP address: " -i "1" OPTIONS
-
-	LOCAL_IP=$(echo ${DefIP[$OPTIONS]})
-
+	read -e -p "Enter IP Address " -i "$DefIP" LOCAL_IP
 	read -e -p "Enter Shadowsocks Port: " -i "8399" LOCAL_PORT
 	read -e -p "Enter ByPassUID: " -i "$CloakUID" BYPASSUID
 	read -e -p "Enter PrivateKey: " -i "$PrivateKey" PRIVATEKEY
