@@ -12,7 +12,7 @@ echo
 
 InstallDep(){
 	rpm -qa | grep docker-ce
-	if [ $?==1 ]
+	if [ $? -eq 1 ]
 	then
 		yum install -y yum-utils
 		yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -21,7 +21,7 @@ InstallDep(){
 	fi
 	
 	docker-compose version
-	if [ $?==1 ]
+	if [ $? -eq 1 ]
 	then
 		curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" \
 		-o /usr/local/bin/docker-compose
@@ -29,7 +29,7 @@ InstallDep(){
 	fi
 	
 	rpm -qa | grep qrencode
-	if [ $?==1 ]
+	if [ $? -eq 1 ]
 	then
 		yum install qrencode
 	fi
